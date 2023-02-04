@@ -10,7 +10,7 @@ public class Main {
         Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
         main.crearHornos();
         main.crearPizzas();
-        
+
     }
 
     private void crearHornos (){
