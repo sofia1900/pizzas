@@ -7,6 +7,17 @@ public class Main {
         Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
         main.crearHornos();
 
+        PizzaCampera campera = new PizzaCampera();
+        PizzaBarbacoa barbacoa = new PizzaBarbacoa();
+        PizzaCarbonara carbonara = new PizzaCarbonara();
+
+        
+        campera.setId("1");
+        campera.setNombre("Campera");
+        campera.setSalsa("Tomate");
+        campera.addExtra("Champiñon");
+        campera.setHorno(hornoA);
+
     }
 
     private void crearHornos (){
@@ -28,17 +39,9 @@ public class Main {
         hornoC.setNombre("Horno tipo C");
         hornoC.setMarca("marcaC");
         hornoC.setTemperatura("800");
+    }
 
-        PizzaCampera campera = new PizzaCampera();
-        PizzaBarbacoa barbacoa = new PizzaBarbacoa();
-        PizzaCarbonara carbonara = new PizzaCarbonara();
-
-
-        campera.setId("1");
-        campera.setNombre("Campera");
-        campera.setSalsa("Tomate");
-        campera.addExtra("Champiñon");
-        campera.setHorno(hornoA);
+    public void crearPizzas(){
 
 
     }
