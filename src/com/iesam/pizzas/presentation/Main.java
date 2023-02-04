@@ -1,12 +1,8 @@
 package com.iesam.pizzas.presentation;
 
-import com.iesam.pizzas.data.HornoDataStore;
 import com.iesam.pizzas.domain.models.*;
 import com.iesam.pizzas.domain.useCases.CogerHornoUseCase;
 import com.iesam.pizzas.domain.useCases.GuardarHornoUseCase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main (String[] args){
@@ -25,7 +21,7 @@ public class Main {
         La impresión de la carta se ha realizado en el método "CARTA()". Este método se encarga de la carta al
         completo.
          */
-        
+
 
         //OPCION SENCILLA DE RESOLVER EL EJERCICIO (solo haciendo lo que se pide):
         /*
