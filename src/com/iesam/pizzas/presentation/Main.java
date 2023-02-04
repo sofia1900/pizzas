@@ -22,12 +22,10 @@ public class Main {
         */
 
         /*
-        La impresión de la carta se ha realizado en el método "CARTA()". Se puede ver como que no cumple el primer
-        principio SOLID, es decir, que no realiza una única cosa porque crea e imprime las pizzas, pero yo lo he
-        hecho por el motivo de que es el método que hace la carta al completo y para no crear el dataStore y los
-        casos de uso de las pizzas.
+        La impresión de la carta se ha realizado en el método "CARTA()". Este método se encarga de la carta al
+        completo.
          */
-
+        
 
         //OPCION SENCILLA DE RESOLVER EL EJERCICIO (solo haciendo lo que se pide):
         /*
