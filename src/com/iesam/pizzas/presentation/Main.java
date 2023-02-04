@@ -7,15 +7,16 @@ import com.iesam.pizzas.domain.useCases.GuardarHornoUseCase;
 
 public class Main {
     public static void main (String[] args){
-        GuardarHornoUseCase guardar = new GuardarHornoUseCase();
-        CogerHornoUseCase cogerHorno = new CogerHornoUseCase();
+
         Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
-        main.crearHornos(guardar);
-        main.crearPizzas(cogerHorno);
+        main.crearHornos(); //Crear los hornos y almacenarlos en el dataStore para que puedan ser "cogidos" por las pizzas
+        main.crearPizzas(); //Crear las pizzas. Si se diera otra utilidad para las pizzas, como imprimir la carta,
+                            //habría que crear también el dataStore de las pizzas.
 
     }
 
-    private void crearHornos (GuardarHornoUseCase guardar){
+    private void crearHornos (){
+        GuardarHornoUseCase guardar = new GuardarHornoUseCase();
 
         Horno hornoA = new Horno();
         Horno hornoB = new Horno();
@@ -40,7 +41,10 @@ public class Main {
         guardar.execute(hornoC);
     }
 
-    public void crearPizzas(CogerHornoUseCase cogerHorno){
+    public void crearPizzas(){
+
+        CogerHornoUseCase cogerHorno = new CogerHornoUseCase();
+
         PizzaCampera campera = new PizzaCampera();
         PizzaBarbacoa barbacoa = new PizzaBarbacoa();
         PizzaCarbonara carbonara = new PizzaCarbonara();
@@ -49,6 +53,7 @@ public class Main {
         campera.setNombre("Campera");
         campera.setSalsa("Tomate");
         campera.addExtra("Atun");
+        campera.setCarne(false);
         campera.setHorno(cogerHorno.execute("A"));
 
         System.out.println(campera.getHorno());
