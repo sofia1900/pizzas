@@ -4,6 +4,12 @@ import com.iesam.pizzas.domain.models.*;
 
 public class Main {
     public static void main (String[] args){
+        Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
+        main.crearHornos();
+
+    }
+
+    private void crearHornos (){
         Horno hornoA = new Horno();
         Horno hornoB = new Horno();
         Horno hornoC = new Horno();
