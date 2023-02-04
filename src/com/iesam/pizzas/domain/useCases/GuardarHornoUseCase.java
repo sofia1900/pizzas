@@ -4,7 +4,7 @@ import com.iesam.pizzas.data.HornoDataStore;
 import com.iesam.pizzas.domain.models.Horno;
 
 public class GuardarHornoUseCase {
-    HornoDataStore hornoDataStore = new HornoDataStore();
+    private HornoDataStore hornoDataStore = HornoDataStore.getInstance();
 
     public void execute(Horno horno){
         hornoDataStore.guardar(horno);
