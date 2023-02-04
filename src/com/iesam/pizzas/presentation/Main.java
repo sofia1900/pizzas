@@ -13,13 +13,20 @@ public class Main {
 
         Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
         main.crearHornos(); //Crear los hornos y almacenarlos en el dataStore para que puedan ser "cogidos" por las pizzas
-        main.crearPizzas(); //Crear e imprimir las pizzas.
+        main.carta(); //Crear e imprimir las pizzas.
 
         /*
         Si se diera otra utilidad para las pizzas, como modificar los ingredientes, habría que crear también el
         dataStore de las pizzas, ya que se crean en un método fuera de este y no se guardan en el ningún
         momento, y los casos de uso correspondientes.
         */
+
+        /*
+        La impresión de la carta se ha realizado en el método "CARTA()". Se puede ver como que no cumple el primer
+        principio SOLID, es decir, que no realiza una única cosa porque crea e imprime las pizzas, pero yo lo he
+        hecho por el motivo de que es el método que hace la carta al completo y para no crear el dataStore y los
+        casos de uso de las pizzas.
+         */
 
 
         //OPCION SENCILLA DE RESOLVER EL EJERCICIO (solo haciendo lo que se pide):
@@ -112,7 +119,7 @@ public class Main {
         guardar.execute(hornoC);
     }
 
-    public void crearPizzas(){
+    public void carta(){
 
         CogerHornoUseCase cogerHorno = new CogerHornoUseCase();
 
@@ -142,6 +149,12 @@ public class Main {
         carbonara.setQuesoAzul(true);
         carbonara.setQuesoCabra(false);
         barbacoa.setHorno(cogerHorno.execute("C"));
+
+        //Impresion de la carta
+        PrintCarta print = new PrintCarta();
+        print.printCampera(campera);
+        print.printBarbacoa(barbacoa);
+        print.printCarbonara(carbonara);
 
     }
 }
