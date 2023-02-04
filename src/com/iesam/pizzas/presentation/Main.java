@@ -7,15 +7,15 @@ import com.iesam.pizzas.domain.useCases.GuardarHornoUseCase;
 
 public class Main {
     public static void main (String[] args){
+        GuardarHornoUseCase guardar = new GuardarHornoUseCase();
+        CogerHornoUseCase cogerHorno = new CogerHornoUseCase();
         Main main = new Main(); //Al ser estático, no se puede acceder a los métodos de la propia clase.
-        main.crearHornos();
-        main.crearPizzas();
+        main.crearHornos(guardar);
+        main.crearPizzas(cogerHorno);
 
     }
 
-    private void crearHornos (){
-
-        GuardarHornoUseCase guardar = new GuardarHornoUseCase();
+    private void crearHornos (GuardarHornoUseCase guardar){
 
         Horno hornoA = new Horno();
         Horno hornoB = new Horno();
@@ -40,18 +40,18 @@ public class Main {
         guardar.execute(hornoC);
     }
 
-    public void crearPizzas(){
+    public void crearPizzas(CogerHornoUseCase cogerHorno){
         PizzaCampera campera = new PizzaCampera();
         PizzaBarbacoa barbacoa = new PizzaBarbacoa();
         PizzaCarbonara carbonara = new PizzaCarbonara();
-
-        CogerHornoUseCase cogerHorno = new CogerHornoUseCase();
 
         campera.setId("1");
         campera.setNombre("Campera");
         campera.setSalsa("Tomate");
         campera.addExtra("Atun");
         campera.setHorno(cogerHorno.execute("A"));
+
+        System.out.println(campera.getHorno());
 
         barbacoa.setId("2");
         barbacoa.setNombre("Barbacoa");
@@ -67,6 +67,7 @@ public class Main {
         carbonara.addExtra("Champiñon");
         carbonara.setQuesoAzul(true);
         carbonara.setQuesoCabra(false);
+        barbacoa.setHorno(cogerHorno.execute("C"));
 
     }
 }
