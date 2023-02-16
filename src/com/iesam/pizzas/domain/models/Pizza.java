@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-    private String id;
-    private String nombre;
-    private String salsa;
-    private List<String> extras = new ArrayList<>();
-    private Horno horno;
+    protected String id;
+    protected String nombre;
+    protected String salsa;
+    protected List<String> extras = new ArrayList<>();
+    protected Horno horno;
 
 
     public String getId() {
